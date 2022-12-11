@@ -18,10 +18,12 @@ const config = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
+    publicPath: publicPath,
   },
   devServer: {
     open: true,
     host: "localhost",
+    port: 3001,
   },
   plugins: [
     new HtmlWebpackPlugin({

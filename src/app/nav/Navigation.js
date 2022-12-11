@@ -12,7 +12,6 @@ const populateNavItem = ({ path, activeWhen, value }, index) => {
 };
 
 const populateNavigationBar = (remotes) => {
-  console.log(remotes);
   return (
     <Navbar bg="light" expand="lg">
       <Nav variant="tabs" >
@@ -23,7 +22,6 @@ const populateNavigationBar = (remotes) => {
 };
 
 const configureRoutes = (remotes, nav) => {
-  console.log(remotes);
   const routes = remotes.map(({ path, Element, errorElement }) => {
     return {
       path: path,
@@ -31,7 +29,6 @@ const configureRoutes = (remotes, nav) => {
       errorElement,
     };
   });
-  console.log(routes);
   return createBrowserRouter(routes);
 };
 
