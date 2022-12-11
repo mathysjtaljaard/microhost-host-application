@@ -30,7 +30,7 @@ const configureRoutes = (remotes, nav) => {
     };
   });
   return createBrowserRouter(routes, {
-    basename: '/microhost-host-application'
+    basename: '/microhost-host-application/'
   });
 };
 
