@@ -60,14 +60,14 @@ const remotes = [
     activeWhen: "/",
     value: "Home",
     Element: Home,
-    ErrorElement: ErrorPage,
+    ErrorElement: ErrorBoundary,
   },
   {
     path: "/qr/",
     activeWhen: "/qr/",
     value: "QR Generator",
     Element: QRAppContainer,
-    ErrorElement: ErrorPage,
+    ErrorElement: ErrorBoundary,
   },
 ];
 

@@ -22,12 +22,13 @@
   "version": "1.0.0",
   "description": "Micro Front Ends Host Application",
   "name": "microhosts-host-application",
+  "homepage": "https://mathysjtaljaard.github.io/microhost-host-application/",
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "serve": "concurrently \"yarn watch \" \"webpack serve --open --mode=development\" "
+    "serve": "webpack serve --open --mode=development"
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
