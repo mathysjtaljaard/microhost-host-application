@@ -1,10 +1,10 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { Alert, Col, Container, Row } from "react-bootstrap";
 import configureNavigation from "./nav/Navigation";
 import { RouterProvider, useRouteError } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 // This is the name of the ModuleDederationPlugin/nameoftheExportFileName
 const QRApp = React.lazy(() => import("qrcode/QRGenerator"));
 
