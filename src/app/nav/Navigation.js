@@ -22,11 +22,11 @@ const populateNavigationBar = (remotes) => {
 };
 
 const configureRoutes = (remotes, nav) => {
-  const routes = remotes.map(({ path, Element, errorElement }) => {
+  const routes = remotes.map(({ path, Element, ErrorElement }) => {
     return {
       path: path,
       element: <Element nav={nav} />,
-      errorElement,
+      errorElement: <ErrorElement />,
     };
   });
   return createBrowserRouter(routes, {

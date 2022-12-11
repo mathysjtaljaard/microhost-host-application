@@ -3,12 +3,13 @@ import ReactDOM from "react-dom/client";
 import { Alert, Col, Container, Row } from "react-bootstrap";
 import configureNavigation from "./nav/Navigation";
 import { RouterProvider, useRouteError } from "react-router-dom";
+import ErrorBoundary from "./error/ErrorBoundary";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // This is the name of the ModuleDederationPlugin/nameoftheExportFileName
 const QRApp = React.lazy(() => import("qrcode/QRGenerator"));
 
-const QRAppContainer = ({nav}) => {
+const QRAppContainer = ({ nav }) => {
   return (
     <Container fluid>
       <Row>{nav}</Row>
@@ -16,13 +17,15 @@ const QRAppContainer = ({nav}) => {
         <div>Remote QR App Here</div>
       </Row>
       <Row>
-        <QRApp/>
+        <ErrorBoundary>
+          <QRApp />
+        </ErrorBoundary>
       </Row>
     </Container>
   );
 };
 
-const Home = ({nav}) => {
+const Home = ({ nav }) => {
   return (
     <Container fluid>
       <Row>{nav}</Row>
@@ -48,27 +51,23 @@ const Home = ({nav}) => {
 };
 
 const ErrorPage = () => {
-    const error = useRouteError()
-    return (
-        <Alert variant="danger">
-            {error}
-        </Alert>
-    )
-}
+  const error = useRouteError();
+  return <Alert variant="danger">{error}</Alert>;
+};
 const remotes = [
   {
     path: "/",
     activeWhen: "/",
     value: "Home",
     Element: Home,
-    errorElement: ErrorPage
+    ErrorElement: ErrorPage,
   },
   {
     path: "/qr/",
     activeWhen: "/qr/",
     value: "QR Generator",
     Element: QRAppContainer,
-    errorElement: ErrorPage
+    ErrorElement: ErrorPage,
   },
 ];
 
@@ -78,7 +77,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Suspense fallback={<h1>Loading Content</h1>}>
-        <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </Suspense>
   </React.StrictMode>
 );
