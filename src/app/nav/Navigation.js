@@ -29,7 +29,9 @@ const configureRoutes = (remotes, nav) => {
       errorElement,
     };
   });
-  return createBrowserRouter(routes);
+  return createBrowserRouter(routes, {
+    basename: '/microhost-host-application'
+  });
 };
 
 const configureNavigation = (remotes) => {

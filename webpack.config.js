@@ -8,7 +8,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 
 const isProduction = process.env.NODE_ENV == "production";
 const remotes = isProduction ? require("./remotes").production : require("./remotes").local
-const publicPath = isProduction ? "https://mathysjtaljaard.github.io/microhost-host-application/" : "http://localhost:3001/";
+const publicPath = isProduction ? "https://mathysjtaljaard.github.io/microhost-host-application/" : "http://localhost:3001/microhost-host-application/";
 
 const deps = require('./package.json').dependencies;
 
